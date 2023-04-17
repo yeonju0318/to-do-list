@@ -26,7 +26,7 @@
 }
 
 .Addbutton {
-  background-color: teal;
+  background-color: tomato;
   border: none;
   border-radius: 10px;
   color: #fff;
@@ -47,7 +47,7 @@
 }
 
 .Todo-container {
-  border: 4px solid teal;
+  border: 4px solid mistyrose;
   border-radius: 12px;
   padding: 12px 24px 24px;
   width: 270px;
@@ -61,7 +61,7 @@
 
 .Todo-delete-button {
   background-color: #fff;
-  border: 2px solid red;
+  border: 2px solid tomato;
   border-radius: 8px;
   cursor: pointer;
   height: 40px;
@@ -70,7 +70,7 @@
 
 .Todo-complete-button {
   background-color: #fff;
-  border: 2px solid green;
+  border: 2px solid greenyellow;
   border-radius: 8px;
   cursor: pointer;
   height: 40px;

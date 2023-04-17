@@ -12,7 +12,7 @@ function App() {
     {
       id: 2,
       title: "JS 공부하기",
-      body: "JS 기초를 공부해봅시다.",
+      body: "너무 어렵다",
       isDone: true,
     },
   ]);
