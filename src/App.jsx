@@ -1,5 +1,17 @@
 import { useState } from "react";
 import "./App.css";
+import {
+  TodoDeleteButton,
+  TodoCompleteButton,
+  Addbutton,
+} from "./styled-components/buttons";
+import Global from "./styled-components/global";
+import {
+  TodoContainer,
+  Addform,
+  Formlabel,
+  Top,
+} from "./styled-components/container";
 
 function App() {
   const [lists, setLists] = useState([
@@ -71,89 +83,70 @@ function App() {
     setLists(newLists);
   };
 
-  //추가된 리스트가 왜 밑으로 붙는건지?(오른쪽에 붙히고싶음)
-  //완료 버튼 눌렀을때 Done필드로 들어가야하는데 왜안되는건지?????????(boolean값 변경은 한거같은데)
-
   const workingLists = lists.filter((list) => !list.isDone);
   const doneLists = lists.filter((list) => list.isDone);
 
   return (
     <div>
-      <div className="Top">My Todo List</div>
-      <div className="Addform">
+      <Top>My Todo List</Top>
+      <Addform>
         제목
-        <input
-          value={title}
-          onChange={onTitleChangeHandler}
-          className="Formlabel"
-          type="text"
-        />
+        <Formlabel value={title} onChange={onTitleChangeHandler} type="text" />
         내용
-        <input
-          value={body}
-          onChange={onBodyChangeHandler}
-          className="Formlabel"
-          type="text"
-        />
-        <button onClick={onClickHandler} className="Addbutton">
-          추가하기
-        </button>
-      </div>
-      <h2 className="List-title">Working.. 🔥</h2>
-      <div style={{ display: "flex", gap: 20 }}>
+        <Formlabel value={body} onChange={onBodyChangeHandler} type="text" />
+        <Addbutton onClick={onClickHandler}>추가하기</Addbutton>
+      </Addform>
+      <h2>Working.. 🔥</h2>
+      <Global>
         {workingLists.map(function (item) {
           return (
-            <div key={item.id} className="List-wrapper">
-              <div className="Todo-container">
+            <div key={item.id}>
+              <TodoContainer>
                 <h2>{item.title}</h2>
                 <div>{item.body}</div>
-                <div className="Button-set">
-                  <button
+                <div>
+                  <TodoDeleteButton
                     onClick={() => clickRemoveButtonHandler(item.id)}
-                    className="Todo-delete-button"
                   >
                     삭제하기
-                  </button>
-                  <button
+                  </TodoDeleteButton>
+                  <TodoCompleteButton
                     onClick={() => clickCompleteButtonHandler(item.id)}
-                    className="Todo-complete-button"
                   >
                     완료
-                  </button>
+                  </TodoCompleteButton>
                 </div>
-              </div>
+              </TodoContainer>
             </div>
           );
         })}
-      </div>
+      </Global>
 
-      <h2 className="List-title">Done..! 🎉</h2>
-      <div style={{ display: "flex", gap: 20 }}>
+      <h2>Done..! 🎉</h2>
+      <Global>
         {doneLists.map(function (item) {
           return (
-            <div key={item.id} className="List-wrapper">
-              <div className="Todo-container">
+            <div key={item.id}>
+              <TodoContainer>
                 <h2>{item.title}</h2>
                 <div>{item.body}</div>
-                <div className="Button-set">
-                  <button
+                <div>
+                  <TodoDeleteButton
                     onClick={() => clickRemoveButtonHandler(item.id)}
-                    className="Todo-delete-button"
                   >
                     삭제하기
-                  </button>
-                  <button
+                  </TodoDeleteButton>
+                  <TodoCompleteButton
                     onClick={() => clickCancelButtonHanler(item.id)}
-                    className="Todo-complete-button"
                   >
                     취소
-                  </button>
+                  </TodoCompleteButton>
                 </div>
-              </div>
+              </TodoContainer>
             </div>
           );
         })}
-      </div>
+      </Global>
     </div>
   );
 }
