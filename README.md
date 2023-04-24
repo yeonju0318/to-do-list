@@ -13,4 +13,6 @@
 
 3. 동적 라우팅 설정
 
-- ../shared/Router.js a
+- ../shared/Router.js
+
+깃허브왜 안되는거징..?
