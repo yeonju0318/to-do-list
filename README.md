@@ -13,4 +13,4 @@
 
 3. 동적 라우팅 설정
 
-- ../shared/Router.js
+- ../shared/Router.js a
